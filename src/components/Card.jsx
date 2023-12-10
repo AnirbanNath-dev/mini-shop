@@ -9,10 +9,14 @@ function Card({imageUrl , productName , price}) {
     const products = useSelector(state => state.products)
   
     const addCart = ()=>{
-
-        dispatch(addToCart())
+        
+        dispatch(addToCart({
+            name : productName,
+            price : price
+        }))
         
     }
+    
 
   return (
     <>
