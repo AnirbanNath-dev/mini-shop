@@ -2,15 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide the default scrollbar */
 body {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
 
-/* For Webkit browsers (Chrome, Safari) */
 body::-webkit-scrollbar {
-  width: 6px;
+  width: 0px;
 }
 
 body::-webkit-scrollbar-thumb {
