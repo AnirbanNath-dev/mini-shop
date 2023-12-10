@@ -12,7 +12,8 @@ function Card({imageUrl , productName , price}) {
         
         dispatch(addToCart({
             name : productName,
-            price : price
+            price : price,
+            image : imageUrl
         }))
         
     }

@@ -16,7 +16,8 @@ export const shopSlice = createSlice({
                 id : nanoid(),
                 name : action.payload.name,
                 quantity : 1,
-                price : action.payload.price
+                price : action.payload.price,
+                image: action.payload.image
 
             }
 
