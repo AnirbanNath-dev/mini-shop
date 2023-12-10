@@ -1,7 +1,19 @@
 import React from 'react'
 import { Button } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart } from '../redux/features/slices'
 
 function Card({imageUrl , productName , price}) {
+
+    const dispatch = useDispatch()
+    const products = useSelector(state => state.products)
+  
+    const addCart = ()=>{
+
+        dispatch(addToCart())
+        
+    }
+
   return (
     <>
       <div className='flex flex-col rounded-xl shadow-sm shadow-black w-96 p-2 gap-4'>
@@ -12,8 +24,8 @@ function Card({imageUrl , productName , price}) {
         <span>Price : ₹ {price}</span>
 
         <div className='flex gap-4 justify-center'>
-        <Button variant="contained">Buy Now</Button>
-        <Button variant="contained">Add to Cart</Button>
+        <Button variant="contained" >Buy Now</Button>
+        <Button variant="contained" onClick={addCart}>Add to Cart</Button>
 
         </div>
       </div>

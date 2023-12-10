@@ -5,12 +5,16 @@ import { NavLink } from 'react-router-dom';
 import { Badge } from '@mui/material';
 import Menu from '@mui/material/Menu';
 
+
 import cartGif from '../assets/cartgif.gif';
+import { useSelector } from 'react-redux';
+
 
 
 
 function NavBar() {
-
+    const totalProducts = useSelector(state => state.totalProducts)
+    
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -37,7 +41,7 @@ function NavBar() {
                 </div>
                 <div>
                     <Badge
-                        badgeContent={0}
+                        badgeContent={totalProducts}
                         color="primary"
                         id="basic-button"
                         aria-controls={open ? 'basic-menu' : undefined}

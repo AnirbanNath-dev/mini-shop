@@ -14,8 +14,10 @@ function Home() {
             <div className='flex gap-12 flex-wrap justify-center mt-8'>
 
                 {
-                    Cardsdata.map((data)=>(
-                        <Card imageUrl={data.imgdata} productName={data.rname} price={data.price}/>
+                    Cardsdata.map((data , index)=>(
+                        
+                        <Card key={index} imageUrl={data.imgdata} productName={data.rname} price={data.price}/>
+                       
                     ))
                 }
 
