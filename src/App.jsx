@@ -12,9 +12,9 @@ function App() {
     <>
       <NavBar></NavBar>
       <Routes>
-        <Route exact path="/" Component={Home}/>
-        <Route exact path="/dets" Component={ItemsDetails}/>
-        <Route exact path='/contact' Component={Contact}/>
+        <Route exact path="/mini-shop/" Component={Home}/>
+        <Route exact path="/mini-shop/dets" Component={ItemsDetails}/>
+        <Route exact path='/mini-shop/contact' Component={Contact}/>
       </Routes>
     </>
   )

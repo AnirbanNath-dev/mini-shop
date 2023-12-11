@@ -35,9 +35,9 @@ function NavBar() {
                 <img src={logo} alt="" className='h-10' />
                 <div className='flex gap-10 text-lg'>
 
-                    <NavLink to='/' className={({ isActive }) => `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Home</NavLink>
-                    <NavLink to='/dets' className={({ isActive }) => `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Cart</NavLink>
-                    <NavLink to='/contact' className={({ isActive }) => `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Contact</NavLink>
+                    <NavLink end to='/mini-shop/' className={({ isActive }) => `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Home</NavLink>
+                    <NavLink end to='/mini-shop/dets' className={({ isActive }) => `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Cart</NavLink>
+                    <NavLink end to='/mini-shop/contact' className={({ isActive }) => `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Contact</NavLink>
 
 
                 </div>
