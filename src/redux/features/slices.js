@@ -19,7 +19,7 @@ export const shopSlice = createSlice({
             if (existingProduct) {
                 
                 existingProduct.quantity += 1;
-                
+
               } else {
                
                 const product = {
@@ -42,8 +42,15 @@ export const shopSlice = createSlice({
 
         removeFromCart : (state , action)=>{
 
-            state.products = state.products.filter(product => product.id !== action.payload.id)
-            state.totalProducts -= 1
+            const currentProduct = state.products.find(product => product.id == action.payload.id)
+
+            if(currentProduct.quantity == 1){
+
+                state.products = state.products.filter(product => product.id !== action.payload.id)
+                state.totalProducts -= 1
+            }else{
+                currentProduct.quantity -= 1
+            }
 
         },
 

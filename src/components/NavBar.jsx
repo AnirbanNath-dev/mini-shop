@@ -77,7 +77,7 @@ function NavBar() {
 
                                     {
                                         products.map((product, index) => (
-                                            <AddCart key={index} productName={product.name} price={product.price} imgUrl={product.image} quantity={product.quantity} />
+                                            <AddCart key={index} productName={product.name} price={product.price} imgUrl={product.image} quantity={product.quantity} id={product.id}/>
                                         ))
 
                                     }
