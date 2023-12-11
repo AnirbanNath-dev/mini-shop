@@ -12,26 +12,41 @@ export const shopSlice = createSlice({
     reducers : {
         addToCart : (state , action )=>{
             
-            const product = {
-                id : nanoid(),
-                name : action.payload.name,
-                quantity : 1,
-                price : action.payload.price,
-                image: action.payload.image
-
-            }
+            const { name, price, image } = action.payload;
 
 
-            state.products.push(product)
-            state.totalProducts += 1
-        },
+            const existingProduct = state.products.find((product) => product.name === name);
+            if (existingProduct) {
+                
+                existingProduct.quantity += 1;
+                
+              } else {
+               
+                const product = {
+                  id: nanoid(),
+                  name,
+                  quantity: 1,
+                  price,
+                  image,
+                };
+        
+                state.products.push(product);
+                state.totalProducts += 1;
+              }
+            },
+        
+            
+
+            
+        
 
         removeFromCart : (state , action)=>{
 
             state.products = state.products.filter(product => product.id !== action.payload.id)
             state.totalProducts -= 1
 
-        }
+        },
+
     }
 })
 

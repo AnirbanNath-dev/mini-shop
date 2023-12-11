@@ -16,7 +16,7 @@ import AddCart from './AddCart';
 function NavBar() {
     const totalProducts = useSelector(state => state.totalProducts)
     const products = useSelector(state => state.products)
-    
+    console.log(products)
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -35,9 +35,9 @@ function NavBar() {
                 <img src={logo} alt="" className='h-10' />
                 <div className='flex gap-10 text-lg'>
 
-                    <NavLink to='/' className={({isActive})=> `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Home</NavLink>
-                    <NavLink to='/dets' className={({isActive})=> `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Cart</NavLink>
-                    <NavLink to='/contact' className={({isActive})=> `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Contact</NavLink>
+                    <NavLink to='/' className={({ isActive }) => `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Home</NavLink>
+                    <NavLink to='/dets' className={({ isActive }) => `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Cart</NavLink>
+                    <NavLink to='/contact' className={({ isActive }) => `cursor-pointer , ${isActive ? 'text-sky-400' : null}`}>Contact</NavLink>
 
 
                 </div>
@@ -63,28 +63,40 @@ function NavBar() {
                         }}
                         className='p-4'
                     >
-                        
 
-                            {
-                                totalProducts == 0 ? (
-                                    <div className='p-4 flex gap-2'>
-                                        <span className='font-semibold text-lg'>Your Cart is empty</span>
-                                        <img src={cartGif} alt="" className='h-9'/>
-                                    </div>
-        
-                                ) : (
-                                    <div className='p-4 flex flex-col gap-2'>
 
-                                        {
-                                            products.map(product => (
-                                               <AddCart/>
-                                            ))
+                        {
+                            totalProducts == 0 ? (
+                                <div className='p-4 flex gap-2'>
+                                    <span className='font-semibold text-lg'>Your Cart is empty</span>
+                                    <img src={cartGif} alt="" className='h-9' />
+                                </div>
+
+                            ) : (
+                                <div className='p-4 flex flex-col gap-2'>
+
+                                    {
+                                        products.map((product, index) => (
+                                            <AddCart key={index} productName={product.name} price={product.price} imgUrl={product.image} quantity={product.quantity} />
+                                        ))
+
+                                    }
+
+                                    <div className='border-t-2 border-gray-700 pt-2'>
+
+                                        <span className='text-md font-semibold'>Total Price : ₹ {products.reduce((acc, product) => {
+                                            return acc + product.quantity * product.price;
+                                        }, 0)
+
                                         }
+                                        </span>
 
                                     </div>
-                                )
-                            }
-                        
+
+                                </div>
+                            )
+                        }
+
                     </Menu>
 
                 </div>
