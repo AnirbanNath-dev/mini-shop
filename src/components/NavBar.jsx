@@ -68,8 +68,9 @@ function NavBar() {
                         {
                             totalProducts == 0 ? (
                                 <div className='p-4 flex gap-2'>
-                                    <span className='font-semibold text-lg'>Your Cart is empty</span>
                                     <img src={cartGif} alt="" className='h-9' />
+                                    <span className='font-semibold text-lg'>Your Cart is empty</span>
+                                    
                                 </div>
 
                             ) : (
